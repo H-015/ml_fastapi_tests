@@ -1,23 +1,20 @@
-from fastapi import FastAPI
-from transformers import pipeline
+from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
-
-
-class Item(BaseModel):
-    text: str
-
-
+from typing import List
 
 app = FastAPI()
-classifier = pipeline("sentiment-analysis")
 
+tests = []
 
+class Test(BaseModel):
+    id: int
+    name: String
 
-@app.get("/")
-def root():
-    return {"message": "Hello World"}
+@app.get("/tests", response_model=List[Test])
+def get_tests():
+    return tests
 
-
-@app.post("/predict/")
-def predict(item: Item):
-    return classifier(item.text)[0]
+@app.post("/tests", response_model=Test)
+def create_test(test: Test):
+    tests.append(test)
+    return test
