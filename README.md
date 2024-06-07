@@ -1,8 +1,11 @@
-[![Tests](https://github.com/tokarevsas31/ml_fastapi_tests/actions/workflows/python-app.yml/badge.svg)](https://github.com/tokarevsas31/ml_fastapi_tests/actions/workflows/python-app.yml)
+# ML FastAPI Tests
 
-# An example of ML Application with the pretrained model and test.
+## Описание
+Это приложение на FastAPI для управления тестами машинного обучения.
 
-An example of English text tone detection with [Hugging Face](https://huggingface.co/) library.
+## Методы API
 
+- `GET /tests` - Получить список всех тестов.
+- `POST /tests` - Создать новый тест.
 
-Tests GitHub Actions
+## Установка
